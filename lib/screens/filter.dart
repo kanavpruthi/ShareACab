@@ -1,8 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shareacab/models/requestdetails.dart';
 import 'package:shareacab/models/alltrips.dart';
-
 
 import '../main.dart';
 
@@ -130,6 +130,7 @@ class _FilterState extends State<Filter> {
       });
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -145,6 +146,7 @@ class _FilterState extends State<Filter> {
           children: <Widget>[
             SwitchListTile(
               title: Text('Destination'),
+              activeColor: Theme.of(context).accentColor,
               value: _dest,
               subtitle: Text('Select Preferred Destination'),
               onChanged: (newValue) {
@@ -187,6 +189,7 @@ class _FilterState extends State<Filter> {
             ),
             SwitchListTile(
               title: Text('Date'),
+              activeColor: Theme.of(context).accentColor,
               value: _date,
               subtitle: Text('Select Preferred Date Period'),
               onChanged: (newValue) {
@@ -222,6 +225,7 @@ class _FilterState extends State<Filter> {
             SwitchListTile(
               title: Text('Time'),
               value: _time,
+              activeColor: Theme.of(context).accentColor,
               subtitle: Text('Select Preferred Time Interval'),
               onChanged: (newValue) {
                 setState(() {
@@ -253,28 +257,34 @@ class _FilterState extends State<Filter> {
                 ],
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                Container(
-                  height: 40,
-                  width: 120,
-                  margin: EdgeInsets.only(
-                    top: 15,
-                    bottom: 5,
-                    right: 20,
-                  ),
-                  child: RaisedButton(
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  RaisedButton(
                     onPressed: () {
                       _submitData();
                     },
                     color: Theme.of(context).accentColor,
-                    child: Text('Filter', style: TextStyle(fontSize: 16, color: getVisibleColorOnAccentColor(context))),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      child: Text(
+                        'FILTER',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: getVisibleColorOnAccentColor(context),
+                          letterSpacing: 2.0,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-            SizedBox(height: 20,)
+            SizedBox(
+              height: 20,
+            )
           ],
         ),
       ),

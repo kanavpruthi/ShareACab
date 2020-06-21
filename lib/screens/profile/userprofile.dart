@@ -105,7 +105,9 @@ class _MyProfileState extends State<MyProfile> {
                       Navigator.pushNamed(context, '/edituserdetails');
                       // _showEditPannel();
                     },
-                    icon: Icon(Icons.edit),
+                    icon: Icon(
+                      Icons.edit,
+                    ),
                     label: Text('Edit')),
                 FlatButton.icon(
                   textColor: getVisibleColorOnPrimaryColor(context),
@@ -144,7 +146,10 @@ class _MyProfileState extends State<MyProfile> {
                     Container(
                       height: MediaQuery.of(context).size.height / 6,
                       width: MediaQuery.of(context).size.width,
-                      color: Theme.of(context).primaryColor,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        borderRadius: BorderRadius.only(bottomRight: Radius.circular(20.0), bottomLeft: Radius.circular(20)),
+                      ),
                     ),
                     Positioned(
                       top: MediaQuery.of(context).size.height / 6 - 74,

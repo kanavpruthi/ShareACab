@@ -14,6 +14,10 @@ class _MyRequestsState extends State<MyRequests> {
   ];
   @override
   Widget build(BuildContext context) {
+    var statusStyle = TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.w700,
+    );
     return Scaffold(
         appBar: AppBar(
           title: Text('My Requests'),
@@ -82,11 +86,11 @@ class _MyRequestsState extends State<MyRequests> {
                                                 children: <Widget>[
                                                   FlatButton(
                                                     onPressed: null,
-                                                    child: Text('Accepted', style: TextStyle(color: requestAccepted(context), fontWeight: FontWeight.w700)),
+                                                    child: Text('Accepted', style: statusStyle.copyWith(color: requestAccepted(context))),
                                                   ),
                                                   FlatButton(
                                                     onPressed: null,
-                                                    child: Text('Join Now', style: TextStyle(color: requestAccepted(context), fontWeight: FontWeight.w700)),
+                                                    child: Text('Join Now', style: statusStyle.copyWith(color: requestAccepted(context))),
                                                   )
                                                 ],
                                               )
@@ -95,7 +99,7 @@ class _MyRequestsState extends State<MyRequests> {
                                                     children: <Widget>[
                                                       FlatButton(
                                                         onPressed: null,
-                                                        child: Text('Rejected', style: TextStyle(color: requestRejected(context), fontWeight: FontWeight.w700)),
+                                                        child: Text('Rejected', style: statusStyle.copyWith(color: requestRejected(context))),
                                                       ),
                                                       FlatButton(
                                                         onPressed: null,
@@ -107,7 +111,7 @@ class _MyRequestsState extends State<MyRequests> {
                                                     children: <Widget>[
                                                       FlatButton(
                                                         onPressed: null,
-                                                        child: Text('Pending', style: TextStyle(color: requestPending(context), fontWeight: FontWeight.w700)),
+                                                        child: Text('Pending', style: statusStyle.copyWith(color: requestPending(context))),
                                                       ),
                                                       FlatButton(
                                                         onPressed: null,
@@ -157,8 +161,12 @@ class _MyRequestsState extends State<MyRequests> {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: <Widget>[
                                 Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    Text('Members'),
+                                    Text(
+                                      'Members',
+                                      style: statusStyle,
+                                    ),
                                     Text('Arpit'),
                                     Text('Vishal'),
                                     Text('Kshitij'),
@@ -166,8 +174,12 @@ class _MyRequestsState extends State<MyRequests> {
                                   ],
                                 ),
                                 Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    Text('Going To'),
+                                    Text(
+                                      'Going To',
+                                      style: statusStyle,
+                                    ),
                                     Text('Goa'),
                                     Text('Paris'),
                                     Text('London'),
