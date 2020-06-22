@@ -77,8 +77,8 @@ class _SettingsState extends State<Settings> {
                   onChanged: (val) {
                     setState(() {
                       _darkTheme = val;
+                      onThemeChanged(val, themeNotifier);
                     });
-                    onThemeChanged(val, themeNotifier);
                   },
                 ),
               ),
