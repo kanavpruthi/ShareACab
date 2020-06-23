@@ -45,9 +45,6 @@ class _GroupPageState extends State<GroupPage> with AutomaticKeepAliveClientMixi
   bool timestampFlag = false;
 
   @override
-  bool get wantKeepAlive => true;
-
-  @override
   Widget build(BuildContext context) {
     super.build(context);
     final currentuser = Provider.of<FirebaseUser>(context);
@@ -336,6 +333,11 @@ class _GroupPageState extends State<GroupPage> with AutomaticKeepAliveClientMixi
                       child: FutureBuilder(
                         future: getMembers(groupUID),
                         builder: (_, snapshots) {
+                          if (!snapshots.hasData) {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
                           return ListView.builder(
                             shrinkWrap: true,
                             itemCount: snapshots.data == null ? 0 : snapshots.data.length,
@@ -387,6 +389,8 @@ class _GroupPageState extends State<GroupPage> with AutomaticKeepAliveClientMixi
             ),
           );
   }
+  @override
+  bool get wantKeepAlive => true;
 }
 
 class Members {
