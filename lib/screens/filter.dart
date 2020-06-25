@@ -156,7 +156,6 @@ class _FilterState extends State<Filter> {
               activeColor: Theme.of(context).accentColor,
               value: _dest,
               subtitle: Text('Select Preferred Destination'),
-              activeColor: Theme.of(context).accentColor,
               onChanged: (newValue) {
                 setState(() {
                   _dest = newValue;
@@ -200,7 +199,6 @@ class _FilterState extends State<Filter> {
               activeColor: Theme.of(context).accentColor,
               value: _date,
               subtitle: Text('Select Preferred Date Period'),
-              activeColor: Theme.of(context).accentColor,
               onChanged: (newValue) {
                 setState(() {
                   _date = newValue;
@@ -236,7 +234,6 @@ class _FilterState extends State<Filter> {
               value: _time,
               activeColor: Theme.of(context).accentColor,
               subtitle: Text('Select Preferred Time Interval'),
-              activeColor: Theme.of(context).accentColor,
               onChanged: (newValue) {
                 setState(() {
                   _time = newValue;
