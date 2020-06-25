@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shareacab/screens/authenticate/forgotpass.dart';
+import 'package:shareacab/screens/dashboard.dart';
 import 'package:shareacab/screens/edituserdetails.dart';
 import 'package:shareacab/screens/rootscreen.dart';
 import 'package:shareacab/screens/createtrip.dart';
@@ -90,6 +91,14 @@ Color getVisibleColorOnAccentColor(BuildContext context) {
   }
 }
 
+Color getBorderColorForInputFields(BuildContext context) {
+  if (Theme.of(context).brightness == Brightness.dark) {
+    return Colors.white;
+  } else {
+    return Colors.black;
+  }
+}
+
 final darkTheme = ThemeData(
   primarySwatch: Colors.grey,
   bottomAppBarColor: const Color(0xFF212121),
@@ -101,6 +110,7 @@ final darkTheme = ThemeData(
   accentIconTheme: IconThemeData(color: Colors.black),
   dividerColor: Colors.black12,
   scaffoldBackgroundColor: Colors.black,
+  textSelectionHandleColor: Color(0xFFff9f34),
   // inputDecorationTheme: const InputDecorationTheme(fillColor: Colors.black),
 );
 
@@ -117,6 +127,7 @@ final lightTheme = ThemeData(
   accentIconTheme: IconThemeData(color: Colors.white),
   dividerColor: Colors.white54,
   scaffoldBackgroundColor: const Color(0xFFE5E5E5),
+  textSelectionHandleColor: Colors.blueGrey[700],
 
   //scaffoldBackgroundColor: const Color(0xFFFFFF)
 );
@@ -160,6 +171,7 @@ class MyApp extends StatelessWidget {
           '/accounts/forgotpass': (context) => ForgotPass(),
           '/rootscreen': (context) => RootScreen(),
           '/edituserdetails': (context) => EditForm(),
+          '/dashboard': (context) => Dashboard(),
           CreateTrip.routeName: (context) => CreateTrip(),
           ChatScreen.routeName: (context) => ChatScreen(' '),
 //          GroupDetails.routeName : (context) => GroupDetails(' '),
